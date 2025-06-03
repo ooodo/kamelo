@@ -48,6 +48,7 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 0.7rem 1rem;
+        gap: 10px;
       }
       .navbar .logo {
         font-size: 2rem;
@@ -55,10 +56,22 @@
         letter-spacing: 2px;
         color: var(--primary);
         text-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .navbar .logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid var(--primary);
+        box-shadow: 0 0 10px rgb(26 188 156 / 0.5);
+        user-select: none;
       }
       .navbar nav {
         display: flex;
         gap: 1.5rem;
+        flex-wrap: wrap;
       }
       .navbar nav a {
         color: #fff;
@@ -67,6 +80,7 @@
         padding: 0.3rem 0.7rem;
         border-radius: var(--radius);
         transition: background 0.2s, color 0.2s;
+        user-select: none;
       }
       .navbar nav a:hover,
       .navbar nav a.active {
@@ -85,6 +99,16 @@
         background: #fff;
         margin: 4px 0;
         border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .menu-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
       }
       .hero {
         background: linear-gradient(
@@ -93,28 +117,56 @@
           var(--secondary) 100%
         );
         color: #fff;
-        padding: 70px 0 60px 0;
+        padding: 70px 20px 60px 20px;
         text-align: center;
+        position: relative;
+        overflow: hidden;
       }
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         margin: 0 0 15px 0;
         font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+      }
+      .hero h1 img {
+        width: 50px;
+        height: 50px;
+        user-select: none;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgb(255 255 255 / 0.7);
+        animation: float 3s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
       }
       .hero p {
-        font-size: 1.3rem;
-        margin-bottom: 30px;
+        font-size: 1.4rem;
+        margin-bottom: 35px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
       }
       .hero .cta-btn {
         background: #fff;
         color: var(--primary);
         border: none;
-        padding: 12px 32px;
-        font-size: 1.1rem;
+        padding: 14px 36px;
+        font-size: 1.2rem;
         border-radius: var(--radius);
         font-weight: bold;
         cursor: pointer;
-        transition: background 0.2s, color 0.2s;
+        transition: background 0.3s, color 0.3s;
+        box-shadow: 0 6px 20px rgb(26 188 156 / 0.4);
       }
       .hero .cta-btn:hover {
         background: var(--secondary);
@@ -122,56 +174,71 @@
       }
       section {
         max-width: 1100px;
-        margin: 40px auto;
+        margin: 50px auto;
         background: #fff;
         border-radius: var(--radius);
-        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
-        padding: 32px 20px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        padding: 40px 25px;
+        transition: box-shadow 0.3s ease;
+      }
+      section:hover {
+        box-shadow: 0 6px 32px rgba(0, 0, 0, 0.14);
       }
       section h2 {
         color: var(--primary);
         margin-top: 0;
-        margin-bottom: 18px;
-        font-size: 2rem;
+        margin-bottom: 24px;
+        font-size: 2.2rem;
         text-align: center;
+        user-select: none;
       }
       .services-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 24px;
+        gap: 28px;
         justify-content: center;
       }
       .service-box {
-        flex: 1 1 250px;
+        flex: 1 1 280px;
         background: var(--light);
         border-radius: var(--radius);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        padding: 24px 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+        padding: 30px 20px;
         text-align: center;
-        min-width: 220px;
-        max-width: 300px;
-        transition: transform 0.2s;
+        min-width: 240px;
+        max-width: 320px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: default;
+        user-select: none;
       }
       .service-box:hover {
-        transform: translateY(-6px) scale(1.025);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.11);
+        transform: translateY(-8px) scale(1.04);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
       }
       .service-box i {
-        font-size: 2.5rem;
+        font-size: 3rem;
         color: var(--primary);
-        margin-bottom: 14px;
+        margin-bottom: 18px;
         display: block;
       }
       .about-content {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 30px;
+        gap: 36px;
         justify-content: center;
       }
       .about-text {
-        flex: 1 1 340px;
-        font-size: 1.14rem;
+        flex: 1 1 400px;
+        font-size: 1.18rem;
+        line-height: 1.6;
+      }
+      .about-text ul {
+        margin-top: 12px;
+        padding-left: 20px;
+      }
+      .about-text ul li {
+        margin-bottom: 10px;
       }
       .about-img {
         flex: 0 0 180px;
@@ -180,102 +247,120 @@
         justify-content: center;
       }
       .about-img img {
-        width: 130px;
-        height: 130px;
+        width: 140px;
+        height: 140px;
         border-radius: 50%;
         object-fit: cover;
         border: 4px solid var(--primary);
-        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.13);
+        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
+        user-select: none;
       }
-
-      /* أعمالنا */
       #projects {
         margin-top: 40px;
       }
       .projects-content {
         display: flex;
         flex-wrap: wrap;
-        gap: 28px;
+        gap: 32px;
         justify-content: center;
       }
       .project-box {
         background: var(--light);
         border-radius: var(--radius);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        padding: 24px 20px;
-        max-width: 400px;
-        min-width: 220px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 28px 26px;
+        max-width: 420px;
+        min-width: 240px;
         text-align: center;
-        flex: 1 1 320px;
-        margin-bottom: 12px;
+        flex: 1 1 340px;
+        margin-bottom: 14px;
+        cursor: default;
+        user-select: none;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+      }
+      .project-box:hover {
+        box-shadow: 0 10px 48px rgba(0, 0, 0, 0.2);
+        transform: translateY(-7px);
       }
       .project-box h3 {
         color: var(--primary);
         margin-top: 0;
-        margin-bottom: 12px;
-        font-size: 1.3rem;
+        margin-bottom: 16px;
+        font-size: 1.34rem;
       }
       .project-box p {
-        margin-bottom: 18px;
-        font-size: 1.08rem;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
         color: #444;
+        line-height: 1.5;
       }
       .project-btn {
         display: inline-block;
         background: var(--primary);
         color: #fff !important;
-        padding: 10px 28px;
+        padding: 12px 34px;
         border-radius: var(--radius);
-        font-weight: bold;
-        font-size: 1.1rem;
+        font-weight: 700;
+        font-size: 1.15rem;
         text-decoration: none;
-        transition: background 0.2s;
-        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+        user-select: none;
       }
       .project-btn:hover {
         background: var(--secondary);
         color: #fff;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
       }
-
       .contact-form {
-        max-width: 450px;
+        max-width: 480px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        gap: 1.2rem;
+        gap: 1.4rem;
       }
       .contact-form input,
       .contact-form textarea {
         width: 100%;
-        padding: 11px 10px;
+        padding: 14px 12px;
         border: 1px solid #ddd;
         border-radius: var(--radius);
         font-size: 1rem;
         resize: vertical;
+        transition: border-color 0.3s ease;
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: var(--primary);
+        outline: none;
       }
       .contact-form textarea {
-        min-height: 100px;
+        min-height: 110px;
       }
       .contact-form button {
         background: var(--primary);
         color: #fff;
         border: none;
-        padding: 13px 0;
-        font-size: 1.1rem;
+        padding: 14px 0;
+        font-size: 1.2rem;
         border-radius: var(--radius);
-        font-weight: bold;
+        font-weight: 700;
         cursor: pointer;
-        transition: background 0.2s;
+        transition: background 0.3s ease;
+        user-select: none;
       }
-      .contact-form button:hover {
+      .contact-form button:hover,
+      .contact-form button:focus {
         background: var(--secondary);
       }
       .success-msg,
       .error-msg {
         text-align: center;
-        padding: 8px 10px;
+        padding: 10px 14px;
         border-radius: var(--radius);
         margin-top: -8px;
+        font-weight: 600;
+        font-size: 1rem;
       }
       .success-msg {
         background: #e6fff2;
@@ -289,9 +374,10 @@
         background: var(--secondary);
         color: #fff;
         text-align: center;
-        padding: 18px 0;
+        padding: 20px 0;
         font-size: 1rem;
-        margin-top: 40px;
+        margin-top: 50px;
+        user-select: none;
       }
       @media (max-width: 900px) {
         .services-list {
@@ -302,11 +388,14 @@
           flex-direction: column;
         }
         section {
-          padding: 22px 6px;
+          padding: 28px 12px;
         }
         .projects-content {
           flex-direction: column;
           align-items: center;
+        }
+        .navbar nav {
+          gap: 12px;
         }
       }
       @media (max-width: 600px) {
@@ -325,7 +414,7 @@
           display: flex;
         }
         .navbar nav a {
-          padding: 0.7rem 0.4rem;
+          padding: 0.8rem 0.5rem;
           width: 100%;
         }
         .menu-toggle {
@@ -338,14 +427,29 @@
   <body>
     <header>
       <div class="navbar">
-        <span class="logo">ظلان</span>
-        <div class="menu-toggle" onclick="toggleMenu()">
+        <span class="logo" aria-label="شعار ظلان">
+          <img
+            src="https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif"
+            alt="صورة متحركة ظلان"
+            draggable="false"
+            aria-hidden="true"
+          />
+          ظلان
+        </span>
+        <div
+          class="menu-toggle"
+          role="button"
+          tabindex="0"
+          aria-label="قائمة التنقل"
+          onclick="toggleMenu()"
+          onkeypress="if(event.key==='Enter') toggleMenu()"
+        >
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <nav id="main-nav">
-          <a href="#home" class="active">الرئيسية</a>
+        <nav id="main-nav" role="navigation" aria-label="القائمة الرئيسية">
+          <a href="#home" class="active" aria-current="page">الرئيسية</a>
           <a href="#about">من نحن</a>
           <a href="#services">الخدمات</a>
           <a href="#projects">أعمالنا</a>
@@ -356,7 +460,15 @@
     </header>
 
     <section class="hero" id="home">
-      <h1>مرحبًا بك في موقع ظلان</h1>
+      <h1>
+        مرحبًا بك في موقع ظلان
+        <img
+          src="https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif"
+          alt="صورة متحركة شعار ظلان"
+          draggable="false"
+          aria-hidden="true"
+        />
+      </h1>
       <p>
         كل ما تحتاجه للمواقع في مكان واحد. أدوات، خدمات، أفكار، ودعم تقني
         احترافي.
@@ -364,6 +476,7 @@
       <button
         class="cta-btn"
         onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+        aria-label="ابدأ الآن وتواصل معنا"
       >
         ابدأ الآن
       </button>
@@ -397,55 +510,60 @@
     <section id="services">
       <h2>الخدمات</h2>
       <div class="services-list">
-        <div class="service-box">
-          <i>🌐</i>
+        <div class="service-box" tabindex="0">
+          <i aria-hidden="true">🌐</i>
           <h3>تصميم المواقع</h3>
           <p>
             تصميم واجهات عصرية وسريعة الاستجابة لمواقعك الشخصية أو التجارية
             بأحدث التقنيات.
           </p>
         </div>
-        <div class="service-box">
-          <i>🔧</i>
+        <div class="service-box" tabindex="0">
+          <i aria-hidden="true">🔧</i>
           <h3>تطوير المواقع</h3>
           <p>برمجة مواقع احترافية وتطوير حلول خاصة تلبي كل احتياجاتك.</p>
         </div>
-        <div class="service-box">
-          <i>⚡</i>
+        <div class="service-box" tabindex="0">
+          <i aria-hidden="true">⚡</i>
           <h3>التحسين والأداء</h3>
           <p>
             تحسين سرعة المواقع وتجربة المستخدم لضمان أفضل أداء ونتائج في محركات
             البحث.
           </p>
         </div>
-        <div class="service-box">
-          <i>💬</i>
+        <div class="service-box" tabindex="0">
+          <i aria-hidden="true">💬</i>
           <h3>استشارات ودعم فني</h3>
           <p>دعم فني متواصل واستشارات تقنية لمساعدتك في كل ما يخص موقعك.</p>
         </div>
-        <div class="service-box">
-          <i>💡🖼️</i>
+        <div class="service-box" tabindex="0">
+          <i aria-hidden="true">💡🖼️</i>
           <h3>جرافكس وشعارات احترافية</h3>
           <p>
-  نقدم خدمات تصميم جرافيكس احترافية تشمل إنشاء شعارات مميزة، تصاميم تسويقية، ومطبوعات ذات جودة عالية تناسب جميع احتياجاتك.<br />
-  تصميمنا يركز على الإبداع والتميز لنعزز هويتك البصرية بأسلوب عصري ومتقن.
-</p>
+            نقدم خدمات تصميم جرافيكس احترافية تشمل إنشاء شعارات مميزة، تصاميم
+            تسويقية، ومطبوعات ذات جودة عالية تناسب جميع احتياجاتك.<br />
+            تصميمنا يركز على الإبداع والتميز لنعزز هويتك البصرية بأسلوب عصري
+            ومتقن.
+          </p>
         </div>
-        <div class="service-box">
-          <i> 🤖🔧</i>
+        <div class="service-box" tabindex="0">
+          <i aria-hidden="true">🤖🔧</i>
           <h3>عمل بوتات مساعده</h3>
-          <p>نقدم تصميم بوتات متطورة لواتساب وتيليجرام وغيرها تساعدك في أتمتة المهام، تحسين التواصل، وتوفير تجربة سلسة للمستخدمين بواجهة ذكية وسهلة الاستخدام.</p>
+          <p>
+            نقدم تصميم بوتات متطورة لواتساب وتيليجرام وغيرها تساعدك في أتمتة
+            المهام، تحسين التواصل، وتوفير تجربة سلسة للمستخدمين بواجهة ذكية
+            وسهلة الاستخدام.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- قسم أعمالنا يبدأ هنا -->
     <section id="projects">
       <h2>أعمالنا</h2>
       <div class="projects-content">
-        <div class="project-box">
+        <div class="project-box" tabindex="0">
           <h3>منصة اختبار القبول - معهد ظلان للبرمجة</h3>
-           <p>
+          <p>
             نقدم منصات إلكترونية متكاملة للاختبارات والتقييمات مع تحليل فوري
             للنتائج وإصدار شهادات إلكترونية، وواجهة استخدام متجاوبة وسهلة.<br />
             نستطيع تنفيذ منصات شبيهة لهذه المنصة، مثل مواقع مناهج دراسية، أنظمة
@@ -456,36 +574,35 @@
             href="https://ooodo.github.io/my-portfolio/"
             target="_blank"
             rel="noopener"
-            >موقع الاختبار</a
           >
+            موقع الاختبار
+          </a>
         </div>
 
-        <div class="projects-content">
-        <div class="project-box">
-          
-           <h3>منصة تحليل توزيع الوقت</h3>
-<p>
-  أدخل عدد ساعاتك اليومية في 4 فئات: العمل، اللعب، النوم، والأنشطة الأخرى.<br />
-  يتحقق النظام تلقائيًا من أن مجموع الساعات لا يتجاوز 24 ساعة.<br />
-  يعرض لك النسب المئوية لكل فئة بشكل نصي واضح، ويقدم رسمًا بيانيًا دائريًا ملونًا يوضح توزيع وقتك.<br />
-  تصميم متجاوب وسهل الاستخدام، وحقوق الطبع محفوظة لصالح ظلان.<br />
-  زر الدخول للموقع الرسمي أدناه.
-</p>
+        <div class="project-box" tabindex="0">
+          <h3>منصة تحليل توزيع الوقت</h3>
+          <p>
+            أدخل عدد ساعاتك اليومية في 4 فئات: العمل، اللعب، النوم، والأنشطة
+            الأخرى.<br />
+            يتحقق النظام تلقائيًا من أن مجموع الساعات لا يتجاوز 24 ساعة.<br />
+            يعرض لك النسب المئوية لكل فئة بشكل نصي واضح، ويقدم رسمًا بيانيًا
+            دائريًا ملونًا يوضح توزيع وقتك.<br />
+            تصميم متجاوب وسهل الاستخدام، وحقوق الطبع محفوظة لصالح ظلان.<br />
+            زر الدخول للموقع الرسمي أدناه.
+          </p>
           <a
             class="project-btn"
             href="https://ooodo.github.io/time3/"
             target="_blank"
             rel="noopener"
-            >موقع تحليل الوقت</a
           >
+            موقع تحليل الوقت
+          </a>
         </div>
-        <!-- يمكنك إضافة أعمال أخرى هنا بنفس البنية -->
-      </div>
-            
-      <div class="projects-content">
-        <div class="project-box">
+
+        <div class="project-box" tabindex="0">
           <h3>منصة احسب عمرك</h3>
-  <p>
+          <p>
             نقدم منصات إلكترونية متكاملة للاختبارات والتقييمات مع تحليل فوري
             للنتائج وإصدار شهادات إلكترونية، وواجهة استخدام متجاوبة وسهلة.<br />
             نستطيع تنفيذ منصات شبيهة لهذه المنصة، مثل مواقع مناهج دراسية، أنظمة
@@ -496,113 +613,184 @@
             href="https://ooodo.github.io/age-calculato/"
             target="_blank"
             rel="noopener"
-            >موقع احسب عمرك</a
           >
-    </section>
-    <!-- قسم أعمالنا ينتهي هنا -->
-<div class="projects-content">
-        <div class="project-box">
+            موقع احسب عمرك
+          </a>
+        </div>
+
+        <div class="project-box" tabindex="0">
           <h3>منصة تحليل الشخصيات</h3>
-         <p>
-  موقع لتحليل شخصيتك من خلال أسئلة تفاعلية تظهر نتائج مفصلة بطريقة سهلة وجذابة.<br />
-  نقدم أيضاً تصميم اختبارات شخصية، استبيانات، وتقييمات مع تقارير إلكترونية وواجهات استخدام متجاوبة.
-       </p>
+          <p>
+            موقع لتحليل شخصيتك من خلال أسئلة تفاعلية تظهر نتائج مفصلة بطريقة
+            سهلة وجذابة.<br />
+            نقدم أيضاً تصميم اختبارات شخصية، استبيانات، وتقييمات مع تقارير
+            إلكترونية وواجهات استخدام متجاوبة.
+          </p>
           <a
             class="project-btn"
             href="https://ooodo.github.io/zill4/"
             target="_blank"
             rel="noopener"
-            >موقع تحليل الشخصيات</a
           >
+            موقع تحليل الشخصيات
+          </a>
+        </div>
+      </div>
+    </section>
 
-                  <section id="projects1">
+    <section id="projects1">
       <h2>مواقع مفيده</h2>
       <div class="projects-content">
-        <div class="project-box">
+        <div class="project-box" tabindex="0">
           <h3>منصة تعليم لغة python - معهد ظلان للبرمجة</h3>
-           <p>
-  نقدم منصة تعليمية متكاملة لتعلّم لغة بايثون من الصفر حتى الاحتراف، مع شروحات مبسطة، تدريبات تفاعلية، واختبارات تقييم ذاتي.<br />
-  نستطيع تنفيذ منصات تعليمية شبيهة وأكثر تطورًا، مثل مواقع لتعليم البرمجة، دورات خاصة، أنظمة متابعة المتدربين، أو أي موقع أكاديمي مخصص حسب رؤيتك.
-</p>
-
+          <p>
+            نقدم منصة تعليمية متكاملة لتعلّم لغة بايثون من الصفر حتى الاحتراف،
+            مع شروحات مبسطة، تدريبات تفاعلية، واختبارات تقييم ذاتي.<br />
+            نستطيع تنفيذ منصات تعليمية شبيهة وأكثر تطورًا، مثل مواقع لتعليم
+            البرمجة، دورات خاصة، أنظمة متابعة المتدربين، أو أي موقع أكاديمي مخصص
+            حسب رؤيتك.
+          </p>
           <a
             class="project-btn"
             href="https://ooodo.github.io/learnPN/"
             target="_blank"
             rel="noopener"
-            >موقع python</a
           >
+            موقع python
+          </a>
         </div>
 
-        <div class="project-box">
+        <div class="project-box" tabindex="0">
           <h3>منصة تعليم لغة JAVA - معهد ظلان للبرمجة</h3>
-           <p>
-  نقدم منصة تعليمية متكاملة لتعلّم لغة جافا من الصفر حتى الاحتراف، مع شروحات مبسطة، تدريبات تفاعلية، واختبارات تقييم ذاتي.<br />
-  نستطيع تنفيذ منصات تعليمية شبيهة وأكثر تطورًا، مثل مواقع لتعليم البرمجة، دورات خاصة، أنظمة متابعة المتدربين، أو أي موقع أكاديمي مخصص حسب رؤيتك.
-</p>
-
+          <p>
+            نقدم منصة تعليمية متكاملة لتعلّم لغة جافا من الصفر حتى الاحتراف، مع
+            شروحات مبسطة، تدريبات تفاعلية، واختبارات تقييم ذاتي.<br />
+            نستطيع تنفيذ منصات تعليمية شبيهة وأكثر تطورًا، مثل مواقع لتعليم
+            البرمجة، دورات خاصة، أنظمة متابعة المتدربين، أو أي موقع أكاديمي مخصص
+            حسب رؤيتك.
+          </p>
           <a
             class="project-btn"
             href="https://ooodo.github.io/zillamLJAVA/"
             target="_blank"
             rel="noopener"
-            >موقع JAVA</a
           >
+            موقع JAVA
+          </a>
         </div>
+      </div>
+    </section>
 
-          <!-- قسم خدمات الجرافيكس وتصميم البوتات بشكل أفقي -->
-<section class="projects-content" style="margin-top: 40px; display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;">
-
-  <div class="project-box" style="flex: 1 1 300px; max-width: 400px; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
-    <h3>خدمات تصميم جرافيكس وشعارات</h3>
-    <p>
-      نقدم خدمات تصميم جرافيكس احترافية تشمل إنشاء شعارات مميزة، تصاميم تسويقية، ومواد بصرية عالية الجودة لتعزيز هويتك البصرية.
-    </p>
-    <a
-      href="https://wa.me/967735938816"
-      target="_blank"
-      rel="noopener"
-      class="project-btn"
-      style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; font-size: 18px; background-color: #25D366; color: white; border-radius: 8px; text-decoration: none; width: fit-content;"
+    <section
+      class="projects-content"
+      style="
+        margin-top: 40px;
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+      "
     >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 24px; height: 24px;" />
-      مشاهدة الجرافكس
-    </a>
-  </div>
+      <div
+        class="project-box"
+        style="
+          flex: 1 1 300px;
+          max-width: 400px;
+          border: 1px solid #ddd;
+          padding: 20px;
+          border-radius: 10px;
+        "
+        tabindex="0"
+      >
+        <h3>خدمات تصميم جرافيكس وشعارات</h3>
+        <p>
+          نقدم خدمات تصميم جرافيكس احترافية تشمل إنشاء شعارات مميزة، تصاميم
+          تسويقية، ومواد بصرية عالية الجودة لتعزيز هويتك البصرية.
+        </p>
+        <a
+          href="https://wa.me/967735938816"
+          target="_blank"
+          rel="noopener"
+          class="project-btn"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            width: fit-content;
+          "
+          ><img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+            alt="WhatsApp"
+            style="width: 24px; height: 24px"
+          />مشاهدة الجرافكس</a
+        >
+      </div>
 
-  <div class="project-box" style="flex: 1 1 300px; max-width: 400px; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
-    <h3>تصميم بوتات واتساب وتيليجرام</h3>
-    <p>
-      نصمم بوتات متطورة لواتساب وتيليجرام وغيرها، تساعدك في أتمتة المهام، تحسين التواصل، وتوفير تجربة مستخدم سلسة بواجهات ذكية وسهلة الاستخدام.
-    </p>
-    <a
-      href="https://wa.me/967735938816?text=.menu"
-      target="_blank"
-      rel="noopener"
-      class="project-btn"
-      style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; font-size: 18px; background-color: #25D366; color: white; border-radius: 8px; text-decoration: none; width: fit-content;"
-    >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 24px; height: 24px;" />
-      مشاهدة البوت
-    </a>
-  </div>
-
-</section>
-
+      <div
+        class="project-box"
+        style="
+          flex: 1 1 300px;
+          max-width: 400px;
+          border: 1px solid #ddd;
+          padding: 20px;
+          border-radius: 10px;
+        "
+        tabindex="0"
+      >
+        <h3>تصميم بوتات واتساب وتيليجرام</h3>
+        <p>
+          نصمم بوتات متطورة لواتساب وتيليجرام وغيرها، تساعدك في أتمتة المهام،
+          تحسين التواصل، وتوفير تجربة مستخدم سلسة بواجهات ذكية وسهلة الاستخدام.
+        </p>
+        <a
+          href="https://wa.me/967735938816?text=.menu"
+          target="_blank"
+          rel="noopener"
+          class="project-btn"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            width: fit-content;
+          "
+          ><img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+            alt="WhatsApp"
+            style="width: 24px; height: 24px"
+          />مشاهدة البوت</a
+        >
+      </div>
+    </section>
 
     <section id="contact">
       <h2>تواصل معنا</h2>
-      <form class="contact-form" id="contactForm" autocomplete="off">
+      <form class="contact-form" id="contactForm" autocomplete="off" novalidate>
         <input type="text" name="name" placeholder="الاسم الكامل" required />
         <input
           type="email"
           name="email"
           placeholder="البريد الإلكتروني"
           required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="يرجى إدخال بريد إلكتروني صحيح"
         />
         <textarea name="message" placeholder="رسالتك" required></textarea>
-        <button type="submit">إرسال</button>
-        <div id="formMsg"></div>
+        <button type="submit" aria-label="إرسال رسالة التواصل">إرسال</button>
+        <div id="formMsg" role="alert" aria-live="polite"></div>
       </form>
     </section>
 
@@ -612,7 +800,7 @@
       // تغيير active في القائمة حسب التمرير
       const navLinks = document.querySelectorAll(".navbar nav a");
       window.addEventListener("scroll", () => {
-        let fromTop = window.scrollY + 80;
+        let fromTop = window.scrollY + 90;
         navLinks.forEach((link) => {
           const section = document.querySelector(link.getAttribute("href"));
           if (
@@ -627,13 +815,25 @@
       });
 
       // قائمة الموبايل
+      const menuToggle = document.querySelector(".menu-toggle");
+      const mainNav = document.getElementById("main-nav");
+
       function toggleMenu() {
-        const nav = document.getElementById("main-nav");
-        nav.classList.toggle("show");
+        mainNav.classList.toggle("show");
+        menuToggle.classList.toggle("open");
       }
+      menuToggle.addEventListener("click", toggleMenu);
+      menuToggle.addEventListener("keypress", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleMenu();
+        }
+      });
+
       document.addEventListener("click", function (e) {
         if (!e.target.closest(".navbar")) {
-          document.getElementById("main-nav").classList.remove("show");
+          mainNav.classList.remove("show");
+          menuToggle.classList.remove("open");
         }
       });
 
@@ -647,7 +847,11 @@
           let msg = this.message.value.trim();
           let formMsg = document.getElementById("formMsg");
 
-          if (name.length < 3 || !email.includes("@") || msg.length < 5) {
+          if (
+            name.length < 3 ||
+            !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/) ||
+            msg.length < 5
+          ) {
             formMsg.innerHTML =
               '<div class="error-msg">يرجى تعبئة جميع الحقول بشكل صحيح.</div>';
             return;
@@ -658,7 +862,7 @@
           let phone = "967774722964";
           let waUrl = `https://wa.me/${phone}?text=${encodedMsg}`;
 
-          window.open(waUrl, "_blank");
+          window.open(waUrl, "_blank", "noopener");
 
           formMsg.innerHTML =
             '<div class="success-msg">سيتم تحويلك الآن إلى واتساب لإكمال إرسال الرسالة.</div>';
